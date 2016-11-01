@@ -1,48 +1,32 @@
-# unvowel
+# Star Rating
 
-[![NPM](https://nodei.co/npm/unvowel.png?downloads=true&stars=true)](https://nodei.co/npm/unvowel/)
+[![NPM](https://nodei.co/npm/star-ratings.png?downloads=true&stars=true)](https://nodei.co/npm/star-ratings/)
 
-[![build status](https://travis-ci.org/lestoni/unvowel.png)](http://travis-ci.org/lestoni/unvowel)
-
-Works by removing vowels from a string.
-
-Good for generating rememberable passwords.
-
+Calculate the Weighted Average to get a rating. Useful for calculating 5-star or more ratings
 
 ## example
 
-```javascript
-  // on the command line
-  $ unvowel -s 'good yuki' -j
-  $ gdyk
-  $ unvowel -s 'good yuki'
-  $ gd yk
-```
 
 ```javascript
-  // programmatically
 
-  var unvowel = require('unvowel');
+  var starRatings = require('star-ratings');
 
-  console.log(unvowel.parse('good yuki')); // gd yk
-  console.log(unvowel.parse('good yuki', true)); // gdyk
+  // [1-star-voters, 2-star-voters, 3-star-voters, 4-star-voters, ...]
+  var votes = [12, 234, 456, 767, 566];
+  var rating = starRatings(votes);
+  console.log(rating); // '3.8'
 ```
 
 ## API.
 
-### unvowel.parse(str#string, join#bool)
+### starRatings(voters#Array)
 
-Return a `string` _str_ with all the vowels removed.
-
-_join_ controls the option to either join the final output or not. By default
-its value is `false`.
+Returns a `string` _rating_ that is the weighted average.
 
 ## install
 
 ```javascript
-  $ npm install unvowel
-  // globally
-  $ npm install -g unvowel
+  $ npm install star-ratings
 ```
 
 ## license
